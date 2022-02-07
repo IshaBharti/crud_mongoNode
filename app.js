@@ -3,7 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var models=require("./model/userModel")
+var models=require("./model/eventModels")
+const { body, validationResult } = require('express-validator');
+
 
 
 var router = express.Router();
@@ -26,8 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/user', require('./routes/user'));
-app.use('/admin', require('./routes/admin'));
+app.use('/event', require('./routes/event'));
 
 
 
